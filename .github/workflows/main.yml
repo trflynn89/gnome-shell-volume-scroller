@@ -12,12 +12,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Version
+        id: version
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/tags/}
+
+      - name: Package Name
+        id: package
+        run: echo ::set-output name=package::volume_scroller@trflynn89.pm.me.${{ steps.version.outputs.tag }}.shell-extension.zip
+
       - name: Create Package
-        run: zip -j volume_scroller@trflynn89.pm.me.zip volume_scroller@trflynn89.pm.me/*
+        run: zip -j ${{ steps.package.outputs.package }} volume_scroller@trflynn89.pm.me/*
 
       - name: Upload Package
         uses: softprops/action-gh-release@v1
         with:
-          files: volume_scroller@trflynn89.pm.me.zip
+          files: ${{ steps.package.outputs.package }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

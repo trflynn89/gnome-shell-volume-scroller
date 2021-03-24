@@ -8,7 +8,7 @@ To install from a release package, download the [latest release](https://github.
 and extract the downloaded archive to the GNOME Shell Extensions path:
 
 ```bash
-unzip volume_scroller@trflynn89.pm.me.zip -d volume_scroller@trflynn89.pm.me
+unzip volume_scroller@trflynn89.pm.me.[version].shell-extension.zip -d volume_scroller@trflynn89.pm.me
 mv volume_scroller@trflynn89.pm.me ~/.local/share/gnome-shell/extensions
 ```
 
