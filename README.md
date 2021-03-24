@@ -7,7 +7,7 @@ Use the mouse wheel on the GNOME Top Bar to increase or decrease volume.
 To prepare for uploading to [GNOME Shell Extensions](https://extensions.gnome.org/):
 
 ```bash
-zip -j  volume_scroller@trflynn89.pm.me.zip volume_scroller@trflynn89.pm.me/*
+zip -j volume_scroller@trflynn89.pm.me.zip volume_scroller@trflynn89.pm.me/*
 ```
 
 ## Manual Installation
