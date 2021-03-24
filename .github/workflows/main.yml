@@ -1,0 +1,20 @@
+name: Create Release Package
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create Package
+        run: zip -j volume_scroller@trflynn89.pm.me.zip volume_scroller@trflynn89.pm.me/*
+
+      - name: Upload Package
+        uses: actions/upload-artifact@v2.2.2
+        with:
+          path: volume_scroller@trflynn89.pm.me.zip
