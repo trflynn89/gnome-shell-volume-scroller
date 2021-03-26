@@ -3,6 +3,8 @@ const Gio = imports.gi.Gio;
 const Main = imports.ui.main;
 const Volume = imports.ui.status.volume;
 
+let volume_scroller = null;
+
 const VolumeScrollerIcons =
 [
     'audio-volume-muted-symbolic',
@@ -120,17 +122,17 @@ class VolumeScroller
     }
 };
 
-function init()
-{
-    global.volume_scroller = new VolumeScroller();
-}
-
 function enable()
 {
-    global.volume_scroller.enable();
+    volume_scroller = new VolumeScroller();
+    volume_scroller.enable();
 }
 
 function disable()
 {
-    global.volume_scroller.disable();
+    if (volume_scroller !== null)
+    {
+        volume_scroller.disable();
+        volume_scroller = null;
+    }
 }
