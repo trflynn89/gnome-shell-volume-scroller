@@ -2,6 +2,8 @@
 
 Use the mouse wheel on the GNOME Top Bar to increase or decrease volume.
 
+Available for download on [GNOME Shell Extensions](https://extensions.gnome.org/extension/4109/volume-scroller/).
+
 ## Manual Installation
 
 To install from a release package, download the [latest release](https://github.com/trflynn89/gnome-shell-volume-scroller/releases)
