@@ -5,7 +5,7 @@
   "shell-version": [
     "3.36",
     "3.38",
-    "40.0"
+    "40"
   ],
   "url": "https://github.com/trflynn89/gnome-shell-volume-scroller",
   "uuid": "volume_scroller@trflynn89.pm.me",
