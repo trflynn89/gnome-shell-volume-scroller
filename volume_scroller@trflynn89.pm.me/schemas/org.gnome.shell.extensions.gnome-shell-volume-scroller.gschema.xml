@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.gnome-shell-volume-scroller" path="/org/gnome/shell/extensions/gnome-shell-volume-scroller/">
+    <key name="granularity" type="i">
+      <range min="1" max="50" />
+      <default>5</default>
+      <summary>Granularity</summary>
+      <description>How many percentage points to increase or decrease the volume on each scroll tick.</description>
+    </key>
+  </schema>
+</schemalist>

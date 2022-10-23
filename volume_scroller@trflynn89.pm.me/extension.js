@@ -2,6 +2,7 @@ const Clutter = imports.gi.Clutter;
 const Gio = imports.gi.Gio;
 const Main = imports.ui.main;
 const Volume = imports.ui.status.volume;
+const ExtensionUtils = imports.misc.extensionUtils;
 
 let volume_scroller = null;
 
@@ -17,17 +18,25 @@ class VolumeScroller
 {
     constructor()
     {
-       this.controller = Volume.getMixerControl();
-       this.panel = Main.panel;
+        this.settings = ExtensionUtils.getSettings(
+            'org.gnome.shell.extensions.gnome-shell-volume-scroller');
+        const setGranularity = () => {
+            this.volume_granularity = this.settings.get_int('granularity') / 100.0;
+        };
 
-       this.enabled = false;
-       this.sink = null;
+        this.controller = Volume.getMixerControl();
+        this.panel = Main.panel;
 
-       this.volume_max = this.controller.get_vol_max_norm();
-       this.volume_step = 0.05 * this.volume_max;
+        this.enabled = false;
+        this.sink = null;
 
-       this.scroll_binding = null;
-       this.sink_binding = null;
+        this.volume_max = this.controller.get_vol_max_norm();
+        setGranularity();
+
+        this.scroll_binding = null;
+        this.sink_binding = null;
+
+        this.settings.connect('changed::granularity', setGranularity);
     }
 
     enable()
@@ -71,11 +80,11 @@ class VolumeScroller
         switch (event.get_scroll_direction())
         {
             case Clutter.ScrollDirection.UP:
-                volume += this.volume_step;
+                volume += this._get_step();
                 break;
 
             case Clutter.ScrollDirection.DOWN:
-                volume -= this.volume_step;
+                volume -= this._get_step();
                 break;
 
             default:
@@ -119,6 +128,11 @@ class VolumeScroller
         const label = this.sink.get_port().human_port;
 
         Main.osdWindowManager.show(monitor, icon, label, percentage);
+    }
+
+    _get_step()
+    {
+        return this.volume_max * this.volume_granularity;
     }
 };
 
