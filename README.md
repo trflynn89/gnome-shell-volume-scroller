@@ -1,7 +1,3 @@
-# ARCHIVED
-
-This project is archived as I no longer use GNOME myself.
-
 # Volume Scroller for GNOME Shell
 
 Use the mouse wheel on the GNOME Top Bar to increase or decrease volume.
