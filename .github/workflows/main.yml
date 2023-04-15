@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Version
         id: version
@@ -18,10 +18,10 @@ jobs:
 
       - name: Package Name
         id: package
-        run: echo ::set-output name=package::volume_scroller@trflynn89.pm.me.${{ steps.version.outputs.tag }}.shell-extension.zip
+        run: echo ::set-output name=package::volume_scroller@francislavoie.github.io.${{ steps.version.outputs.tag }}.shell-extension.zip
 
       - name: Create Package
-        run: zip -j ${{ steps.package.outputs.package }} volume_scroller@trflynn89.pm.me/*
+        run: zip -j ${{ steps.package.outputs.package }} volume_scroller@francislavoie.github.io/*
 
       - name: Upload Package
         uses: softprops/action-gh-release@v1

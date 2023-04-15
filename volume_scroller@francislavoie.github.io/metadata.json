@@ -1,6 +1,6 @@
 {
   "name": "Volume Scroller",
-  "original-author": "trflynn89@pm.me",
+  "original-author": "francislavoie",
   "description": "Scroll up or down in the Top Bar to adjust volume.",
   "shell-version": [
     "3.36",
@@ -8,10 +8,11 @@
     "40",
     "41",
     "42",
-    "43"
+    "43",
+    "44"
   ],
-  "url": "https://github.com/trflynn89/gnome-shell-volume-scroller",
-  "uuid": "volume_scroller@trflynn89.pm.me",
+  "url": "https://github.com/francislavoie/gnome-shell-volume-scroller",
+  "uuid": "volume_scroller@francislavoie.github.io",
   "settings-schema": "org.gnome.shell.extensions.gnome-shell-volume-scroller",
   "version": 7
 }
